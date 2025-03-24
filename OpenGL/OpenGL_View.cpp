@@ -10,8 +10,8 @@ void RenderScene(void) {
 	glMatrixMode(GL_PROJECTION); // Projection 좌표계로 이동(카메라 좌표계)
 	glLoadIdentity(); // 좌표계의 전환이 여러번 동시에 이루어 지는 것을 분리해서 다시 설정하고 ... -> 변수의 초기화 느낌.
 
-	glViewport(0, 0, 640, 480); // 내부에 표현될 직사각형의 크기설정
-	glOrtho(1.0, -1.0, 1.0, -1.0, 1.0, -1.0); // left, right, bottom, top, near, far
+	glViewport(0, 0, 640, 480); 
+	glOrtho(0,640,0,480,1,-1); // left, right, bottom, top, near, far
 	glMatrixMode(GL_MODELVIEW); // Object 좌표계로 다시 이동
 	glLoadIdentity(); // 좌표계 초기화
 
@@ -28,8 +28,8 @@ int main(int argc, char** argv) {
 	glutInitDisplayMode(GLUT_DOUBLE | GLUT_RGB); // 띄워질 윈도우 창의 설정 (버퍼의 개수 | 색상)
 	glutInitWindowSize(640, 480); // 띄워질 윈도우 창의 크기
 	glutInitWindowPosition(0, 300); // 화면에서 윈도우 창을 띄울 위치 (x,y)형태
-	glutCreateWindow("Simple");
-	SetupRC();
-	glutDisplayFunc(RenderScene);
+	glutCreateWindow("Simple"); //window창의 title
+	SetupRC(); // window창의 배경색을 먼저 띄우고 
+	glutDisplayFunc(RenderScene); // 해당 window창의 내부에 직사각형을 그린다.
 	glutMainLoop();
 }
