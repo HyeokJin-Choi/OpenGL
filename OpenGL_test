@@ -1,0 +1,24 @@
+#include <GL/glut.h>
+#include <stdio.h>
+#include <iostream>
+
+void RenderScene(void) {
+	std::cout << "RenderScene" << std::endl;
+	glClear(GL_COLOR_BUFFER_BIT); // 현재 색상을 사용하여 화면을 지운다.
+	//glFlush(); // 강제로 화면에 출력하는 함수, 드로잉 명령을 사용한다.
+	glutSwapBuffers(); // 출력시 첫 화면에서 검정창으로 뜨는 오류를 해결하기 위해서 삽입.
+}
+void SetupRC(void) {
+	std::cout << "SetupRC" << std::endl;
+	glClearColor(1.0f, 1.0f, 0.0f, 1.0f); // R, G, B, a(투명도)
+}
+int main(int argc, char** argv) {
+	glutInit(&argc, argv);
+	glutInitDisplayMode(GLUT_DOUBLE | GLUT_RGB); // 띄워질 윈도우 창의 설정 (버퍼의 개수 | 색상)
+	glutInitWindowSize(640, 480); // 띄워질 윈도우 창의 크기
+	glutInitWindowPosition(100, 100); // 띄워질 윈도우 창의 위치
+	glutCreateWindow("Simple");
+	SetupRC();
+	glutDisplayFunc(RenderScene);
+	glutMainLoop();
+}
