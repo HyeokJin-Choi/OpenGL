@@ -33,3 +33,40 @@ int main(int argc, char** argv) {
 	glutDisplayFunc(RenderScene); // 해당 window창의 내부에 직사각형을 그린다.
 	glutMainLoop();
 }
+
+
+/* #include <GL/glut.h>
+#include <stdio.h>
+#include <iostream>
+
+void RenderScene(void) {
+	std::cout << "RenderScene" << std::endl;
+	glClear(GL_COLOR_BUFFER_BIT);
+	glMatrixMode(GL_PROJECTION);
+	glLoadIdentity();
+	glViewport(320/2, 240/2, 640, 480); // 그림을 그릴 도화지 설정.
+	glOrtho(0, 640, 0, 480, -1, 1);
+
+	glMatrixMode(GL_MODELVIEW);
+	glLoadIdentity();
+	glColor3f(1.0f, 0.0f, 0.0f);
+	glRectf(0, 240, 320, 0); // viewpoint의 원점부터 그림 현재 설정값으로 해당 원점은 (320/2, 240/2)임. 따라서 여기서부터 가로 세로240, 가로320 크기의 직사각형을 그림.
+	glutSwapBuffers();
+}
+
+void SetupRC(void) { 
+	std::cout << "SetupRC" << std::endl;
+	glClearColor(0.0f, 0.0f, 1.0f, 1.0f);
+}
+
+int main(int argc, char** argv) {
+	glutInit(&argc, argv);
+	glutInitDisplayMode(GLUT_DOUBLE | GLUT_RGB);
+	glutInitWindowSize(640, 480);
+	glutInitWindowPosition(600, 200);
+	glutCreateWindow("Simple");
+	SetupRC();
+	glutDisplayFunc(RenderScene);
+	glutMainLoop();
+}
+*/
