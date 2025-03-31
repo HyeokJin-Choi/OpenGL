@@ -17,21 +17,26 @@ void SetupRC(void) {
 }
 
 void ChangeSize(GLsizei w, GLsizei h) {
-	GLint wSize = 100;
-	GLfloat aspectRatio;
-	if (h == 0) {
-		h = 1;
-	}
+	if (h == 0) h = 1;
+
+	GLfloat aspectRatio = (GLfloat)w / (GLfloat)h;
+
 	glViewport(0, 0, w, h);
-	//glLoadIdentity();
 
 	glMatrixMode(GL_PROJECTION);
 	glLoadIdentity();
 
-	gluOrtho2D(-100.0, 100.0, -100.0, 100.0); // 2D 좌표계 설정
+	if (w >= h) {
+		gluOrtho2D(-100.0 * aspectRatio, 100.0 * aspectRatio, -100.0, 100.0);
+	}
+	else {
+		gluOrtho2D(-100.0, 100.0, -100.0 / aspectRatio, 100.0 / aspectRatio);
+	}
+
 	glMatrixMode(GL_MODELVIEW);
 	glLoadIdentity();
 }
+
 
 int main(int argc, char** argv) {
 	glutInit(&argc, argv);
