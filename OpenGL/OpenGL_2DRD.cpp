@@ -26,11 +26,11 @@ void ChangeSize(GLsizei w, GLsizei h) {
 	glMatrixMode(GL_PROJECTION);
 	glLoadIdentity();
 
-	if (w >= h) {
-		gluOrtho2D(-100.0 * aspectRatio, 100.0 * aspectRatio, -100.0, 100.0);
+	if (w >= h) { // 가로가 더 넓으면 -> 수직 해상도 기준으로 정사각형 유지
+		gluOrtho2D(-100.0 * aspectRatio, 100.0 * aspectRatio, -100.0, 100.0); // left/aspectRatio, right/aspectRatio, bottom, top, -> x좌표계를 늘려준다.
 	}
-	else {
-		gluOrtho2D(-100.0, 100.0, -100.0 / aspectRatio, 100.0 / aspectRatio);
+	else { // 세로가 더 크면 -> 수평 해상도 기준으로 정사각형 유지
+		gluOrtho2D(-100.0, 100.0, -100.0 / aspectRatio, 100.0 / aspectRatio); // left, right, bottom/aspectRatio, top/aspectRatio, -> y좌표계를 늘려준다.
 	}
 
 	glMatrixMode(GL_MODELVIEW);
