@@ -17,20 +17,23 @@ void SetupRC(void) {
 }
 
 void ChangeSize(GLsizei w, GLsizei h) {
+	GLint wSize = 100;
+	GLfloat aspectRatio;
 	if (h == 0) h = 1;
-
-	GLfloat aspectRatio = (GLfloat)w / (GLfloat)h;
 
 	glViewport(0, 0, w, h);
 
 	glMatrixMode(GL_PROJECTION);
 	glLoadIdentity();
 
-	if (w >= h) { // 가로가 더 넓으면 -> 수직 해상도 기준으로 정사각형 유지
-		gluOrtho2D(-100.0 * aspectRatio, 100.0 * aspectRatio, -100.0, 100.0); // left/aspectRatio, right/aspectRatio, bottom, top, -> x좌표계를 늘려준다.
+	aspectRatio = (GLfloat)w / (GLfloat)h;
+	if (w <= h) { // 가로가 더 넓으면 -> 수직 해상도 기준으로 정사각형 유지
+		//gluOrtho2D(-100.0 * aspectRatio, 100.0 * aspectRatio, -100.0, 100.0); // left/aspectRatio, right/aspectRatio, bottom, top, -> x좌표계를 늘려준다.
+		glOrtho(-wSize, wSize, -wSize/aspectRatio, wSize/aspectRatio, 1, -1);
 	}
 	else { // 세로가 더 크면 -> 수평 해상도 기준으로 정사각형 유지
-		gluOrtho2D(-100.0, 100.0, -100.0 / aspectRatio, 100.0 / aspectRatio); // left, right, bottom/aspectRatio, top/aspectRatio, -> y좌표계를 늘려준다.
+		//gluOrtho2D(-100.0, 100.0, -100.0 / aspectRatio, 100.0 / aspectRatio); // left, right, bottom/aspectRatio, top/aspectRatio, -> y좌표계를 늘려준다.
+		glOrtho(-wSize*aspectRatio, wSize*aspectRatio, -wSize, wSize, 1, -1);
 	}
 
 	glMatrixMode(GL_MODELVIEW);
