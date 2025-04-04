@@ -4,13 +4,13 @@
 
 void RenderScene(void) {
 	std::cout << "RenderScene" << std::endl;
-	glClear(GL_COLOR_BUFFER_BIT); // 현재 색상을 사용하여 화면을 지운다.
+	glClear(GL_COLOR_BUFFER_BIT); // 현재 색상(glClearColor)을 사용하여 화면을 지운다. "렌더링을 시작하기 전에, 이전에 그려져 있던 모든 잔상을 지우고, 깔끔하게 새 배경 색으로 채운다."
 	//glFlush(); // 강제로 화면에 출력하는 함수, 드로잉 명령을 사용한다.
 	glutSwapBuffers(); // 출력시 첫 화면에서 검정창으로 뜨는 오류를 해결하기 위해서 삽입.
 }
 void SetupRC(void) {
 	std::cout << "SetupRC" << std::endl;
-	glClearColor(1.0f, 1.0f, 0.0f, 1.0f); // R, G, B, a(투명도)
+	glClearColor(1.0f, 1.0f, 0.0f, 0.0f); // R, G, B, a(투명도)
 }
 int main(int argc, char** argv) {
 	glutInit(&argc, argv);
