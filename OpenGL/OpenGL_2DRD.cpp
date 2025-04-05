@@ -27,10 +27,10 @@ void ChangeSize(GLsizei w, GLsizei h) {
 	glLoadIdentity();
 
 	aspectRatio = (GLfloat)w / (GLfloat)h; // 더 큰 값이 분자에 존재.
-	if (w <= h) { // 세로가 더 크면 -> 수평 해상도 기준으로 정사각형 유지
+	if (w <= h) { // 세로가 더 크면 -> 수평 해상도 기준으로 정사각형 유지, "창이 세로로 길어지면 더 넓은 y범위를 보여줘야 찌그러지지 않음"
 		glOrtho(-wSize, wSize, -wSize/aspectRatio, wSize/aspectRatio, 1, -1);
 	}
-	else { // 가로가 더 크면 -> 수직 해상도 기준으로 정사각형 유지
+	else { // 가로가 더 크면 -> 수직 해상도 기준으로 정사각형 유지, "창이 가로로 길어지면 더 넓은 x범위를 보여줘야 찌그러지지 않음"
 		glOrtho(-wSize*aspectRatio, wSize*aspectRatio, -wSize, wSize, 1, -1);
 	}
 
