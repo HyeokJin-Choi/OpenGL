@@ -26,7 +26,7 @@ void ChangeSize(GLsizei w, GLsizei h) {
 	glMatrixMode(GL_PROJECTION);
 	glLoadIdentity();
 
-	aspectRatio = (GLfloat)w / (GLfloat)h;
+	aspectRatio = (GLfloat)w / (GLfloat)h; // 더 큰 값이 분자에 존재.
 	if (w <= h) { // 세로가 더 크면 -> 수평 해상도 기준으로 정사각형 유지
 		glOrtho(-wSize, wSize, -wSize/aspectRatio, wSize/aspectRatio, 1, -1);
 	}
