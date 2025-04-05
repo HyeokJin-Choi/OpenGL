@@ -27,12 +27,10 @@ void ChangeSize(GLsizei w, GLsizei h) {
 	glLoadIdentity();
 
 	aspectRatio = (GLfloat)w / (GLfloat)h;
-	if (w <= h) { // 가로가 더 넓으면 -> 수직 해상도 기준으로 정사각형 유지
-		//gluOrtho2D(-100.0 * aspectRatio, 100.0 * aspectRatio, -100.0, 100.0); // left/aspectRatio, right/aspectRatio, bottom, top, -> x좌표계를 늘려준다.
+	if (w <= h) { // 세로가 더 크면 -> 수평 해상도 기준으로 정사각형 유지
 		glOrtho(-wSize, wSize, -wSize/aspectRatio, wSize/aspectRatio, 1, -1);
 	}
-	else { // 세로가 더 크면 -> 수평 해상도 기준으로 정사각형 유지
-		//gluOrtho2D(-100.0, 100.0, -100.0 / aspectRatio, 100.0 / aspectRatio); // left, right, bottom/aspectRatio, top/aspectRatio, -> y좌표계를 늘려준다.
+	else { // 가로가 더 크면 -> 수직 해상도 기준으로 정사각형 유지
 		glOrtho(-wSize*aspectRatio, wSize*aspectRatio, -wSize, wSize, 1, -1);
 	}
 
