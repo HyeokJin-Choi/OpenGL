@@ -68,7 +68,7 @@ void RenderScene() {
 
 void SetupRC(void) {
 	std::cout << "SetupRC" << std::endl;
-	glClearColor(0.0f, 0.0f, 1.0f, 1.0f);
+	glClearColor(0.0f, 0.0f, 0.0f, 1.0f);
 }
 
 void changeSize(GLsizei w, GLsizei h) {
@@ -96,7 +96,7 @@ int main(int argc, char** argv) {
 	glutInitDisplayMode(GLUT_SINGLE | GLUT_RGB);
 	glutInitWindowSize(500, 500);
 	glutInitWindowPosition(100, 100);
-	glutCreateWindow("Simple");
+	glutCreateWindow("Checkjin");
 
 	SetupRC();
 	glutDisplayFunc(RenderScene);
