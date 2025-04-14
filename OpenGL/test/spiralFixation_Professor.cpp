@@ -20,7 +20,7 @@ void RenderScene() {
 	for (angle = 0.0f; angle <= 2 * (GL_PI) * 3.0f; angle += 0.1f) {
 		x = 50.0f * cos(angle);
 		y = 50.0f * sin(angle);
-		GLfloat r = (rand() % 100) / 99.0f;
+		GLfloat r = (rand() % 100) / 99.0f; // % 255시 255가지 색상으로 나눌 수 있음.
 		GLfloat g = (rand() % 100) / 99.0f;
 		GLfloat b = (rand() % 100) / 99.0f;
 		glColor3f(r, g, b);
