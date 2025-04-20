@@ -59,18 +59,18 @@ void changeSize(GLsizei w, GLsizei h) {
 	GLint t = 100;
 	GLfloat aspectRatio;
 	if (h == 0) h = 1;
-
-	glViewport(0, 0, w, h);
+	aspectRatio = (GLfloat)w / (GLfloat)h;
+	
 	glMatrixMode(GL_PROJECTION);
 	glLoadIdentity();
-
-	aspectRatio = (GLfloat)w / (GLfloat)h;
+	glViewport(0, 0, w, h);
 	if (w <= h) {
 		glOrtho(-t, t, -t/aspectRatio, t/aspectRatio, t, -t);
 	}
 	else {
 		glOrtho(-t*aspectRatio, t*aspectRatio, -t, t, t, -t);
 	}
+
 	glMatrixMode(GL_MODELVIEW);
 	glLoadIdentity();
 	
