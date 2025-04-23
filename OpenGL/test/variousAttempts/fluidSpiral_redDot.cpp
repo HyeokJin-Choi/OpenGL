@@ -22,8 +22,8 @@ void RenderScene() {
 	glMatrixMode(GL_PROJECTION);
 	glPushMatrix();
 
-	glRotatef(45, 1.0f, 0.0f, 0.0f); 
-	glRotatef(45, 0.0f, 1.0f, 0.0f); 
+	glRotatef(45, 1.0f, 0.0f, 0.0f);
+	glRotatef(45, 0.0f, 1.0f, 0.0f);
 
 	z = -50.0f;
 
