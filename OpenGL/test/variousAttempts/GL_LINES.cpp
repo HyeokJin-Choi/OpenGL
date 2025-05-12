@@ -4,11 +4,8 @@
 #include <math.h>
 
 #define GL_PI 3.1415f
-
 void glPointSize(GLfloat s);
-
 void glLineWidth(GLfloat ls);
-
 float getRandomFloat() {
 	return (float)rand() / (float)RAND_MAX;
 }
