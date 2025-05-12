@@ -87,8 +87,6 @@ void RenderScene() {
 
 	glEnd();
 
-	
-
 	glPopMatrix();
 	glFlush();
 }
