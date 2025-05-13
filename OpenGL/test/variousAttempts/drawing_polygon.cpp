@@ -10,6 +10,21 @@ float getRandomFloat() {
 	return (float)rand() / (float)RAND_MAX;
 }
 
+// void RenderScene() { //삼각형으로 모형 만들기
+// 	glClear(GL_COLOR_BUFFER_BIT);
+// 	glColor3f(1.0f, 0.0f, 0.0f);
+
+// 	glBegin(GL_TRIANGLE_STRIP);
+// 	glVertex2f(0.0f,0.0f);
+// 	glVertex2f(50.0f,0.0f);
+// 	glVertex2f(50.0f,50.0f);
+// 	glVertex2f(0.0f,50.0f);
+// 	glVertex2f(50.0f,100.0f);
+// 	glEnd();
+
+// 	glFlush();
+// }
+
 void RenderScene() {
 	glClear(GL_COLOR_BUFFER_BIT);
 
