@@ -9,6 +9,149 @@ float getRandomFloat() {
 	return (float)rand() / (float)RAND_MAX;
 }
 
+// // 장면 렌더링
+// void RenderScene(void)
+// {
+//     std::cout << "RenderScene" << std::endl;
+
+//     // 2D 사각형 그리기 전에 색상 및 좌표계 설정
+//     //glMatrixMode(GL_MODELVIEW);
+//     //glLoadIdentity();
+//     GLfloat size = 50;
+//     GLint factor = 1;
+//     GLushort pattern = 0x00FF;
+//     // 현재 색상을 사용하여 화면을 지운다.
+//     glClear(GL_COLOR_BUFFER_BIT);
+
+//     // 빨간색 설정
+//     glColor3f(1.0f, 0.0f, 0.0f);
+//     glPushMatrix();
+
+//     glRotatef(45, 1.0f, 0.0f, 0.0f);
+//     glRotatef(45, 0.0f, 1.0f, 0.0f);
+
+//     glLineWidth(2.0f);
+//     glBegin(GL_LINES);
+
+//     //첫번째 정육면체
+
+//     glVertex3f(0, 0, 0);
+//     glVertex3f(0, size, 0);
+
+//     glVertex3f(size, size, 0);
+//     glVertex3f(0, size, 0);
+
+//     glVertex3f(0, size, -size);
+//     glVertex3f(0, size, 0);
+
+//     glVertex3f(0, size, -size);
+//     glVertex3f(size, size, -size);
+
+//     glVertex3f(size, size, 0);
+//     glVertex3f(size, size, -size);
+    
+//     glVertex3f(0, 0, 0);
+//     glVertex3f(size, 0, 0);
+
+//     glVertex3f(size, 0, 0);
+//     glVertex3f(size, size, 0);
+
+//     //두번째 정육면체
+//     glVertex3f(0, 0, 0);
+//     glVertex3f(-size, 0, 0);
+
+//     glVertex3f(0, size, 0);
+//     glVertex3f(-size, size, 0);
+
+//     glVertex3f(-size, 0, 0);
+//     glVertex3f(-size, size, 0);
+
+//     glVertex3f(-size, 0, 0);
+//     glVertex3f(-size, 0, -size);
+
+//     glVertex3f(-size, size, 0);
+//     glVertex3f(-size, size, -size);
+
+//     glVertex3f(0, size , -size);
+//     glVertex3f(-size, size, -size);
+
+//     glVertex3f(-size, 0, -size);
+//     glVertex3f(-size, size, -size);
+
+//     //세번째 정육면체
+//     glVertex3f(size, 0, 0);
+//     glVertex3f(2 * size, 0, 0);
+
+//     glVertex3f(size, size, 0);
+//     glVertex3f(2 * size, size, 0);
+
+//     glVertex3f(2 * size, 0, 0);
+//     glVertex3f(2 * size, size, 0);;
+
+//     glVertex3f(2 * size, size, 0);
+//     glVertex3f(2 * size, size, -size);
+
+
+//     glVertex3f(size, size, -size);
+//     glVertex3f(2 * size, size, -size);
+
+//     glEnd();
+
+//     glEnable(GL_LINE_STIPPLE); // 점선으로 가능하게
+//     glLineStipple(factor, pattern);  //factor는 점선 하나의 픽셀 
+//     glBegin(GL_LINES);
+
+
+//     //첫번째 정육면체의 점선
+//     glVertex3f(size, 0, -size);
+//     glVertex3f(0, 0, -size);
+
+//     glVertex3f(size, 0, -size);
+//     glVertex3f(size, 0, 0);
+
+//     glVertex3f(size, 0, -size);
+//     glVertex3f(size, size, -size);
+
+//     //첫번째 정육면체와 두번째 정육면체 사이의 점선
+//     glVertex3f(0, 0, -size);
+//     glVertex3f(0, 0, 0);
+
+//     glVertex3f(0, 0, -size);
+//     glVertex3f(-size, 0, -size);
+
+//     glVertex3f(0, 0, -size);
+//     glVertex3f(0, size, -size);
+
+
+//     //첫번째 정육면체와 세번째 정육면체 사이의 점선
+
+//     glVertex3f(2 * size, 0, -size);
+//     glVertex3f(2 * size, 0, 0);
+
+//     glVertex3f(2 * size, 0, -size);
+//     glVertex3f(size, 0, -size);
+
+//     glVertex3f(2 * size, 0, -size);
+//     glVertex3f(2 * size, size, -size);
+
+//     glEnd();
+
+//     glDisable(GL_LINE_STIPPLE);
+
+//     glPopMatrix();
+
+//     // 화면의 비율에 맞게 사각형 그리기
+//     //glRectf(-0.25f, 0.25f, 0.25f, -0.25f);  // 화면의 중앙에 정사각형 그리기
+
+
+//     // 이곳에 추가적인 렌더링 명령들을 넣을 수 있음
+//     // 예를 들어 다른 도형이나 텍스트 등
+
+//     // 더블 버퍼링을 위한 스왑
+//     glutSwapBuffers();
+// }
+
+
 void RenderScene() {
 	GLfloat x, y, z, angle;
 	GLfloat sizes[2], step;
