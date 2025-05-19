@@ -15,7 +15,7 @@ void RenderScene() {
 	float centerX = 0.0f, centerY = 0.0f;
 	float radius = 50.0f;
 	int count = 0;
-	bool mutex = false;
+	bool falg = false;
 
 	glClear(GL_COLOR_BUFFER_BIT);
 
@@ -34,13 +34,13 @@ void RenderScene() {
 			glColor3f(1.0f, 0.0f, 0.0f);  // 초록색
 		}
 		*/
-		if (mutex) {
+		if (falg) {
 			glColor3f(1.0f, 0.0f, 0.0f);
-			mutex = false;
+			falg = false;
 		}
 		else {
 			glColor3f(0.0f, 1.0f, 0.0f);
-			mutex = true;
+			falg = true;
 		}
 		glVertex3f(x, y, 0.0f);
 		count++;
@@ -66,7 +66,7 @@ void RenderScene() {
 
 void SetupRC(void) {
 	std::cout << "SetupRC" << std::endl;
-	glClearColor(0.0f, 0.0f, 1.0f, 1.0f);
+	glClearColor(0.0f, 0.0f, 0.0f, 1.0f);
 	//glShadeModel(GL_FLAT); // 한번만 실행되면 되는 거라서, SetUpRC함수에 넣음.
 	glShadeModel(GL_SMOOTH);
 }
