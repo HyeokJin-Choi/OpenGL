@@ -25,6 +25,35 @@ void RenderScene() {
 	glFlush();
 }
 
+// void RenderScene() { //다른 그림으로 도전
+// 	glClear(GL_COLOR_BUFFER_BIT);
+// 	glColor3f(1.0f, 0.0f, 0.0f);
+
+// 	glBegin(GL_TRIANGLE_STRIP);
+// 	glVertex2f(0.0f, 0.0f); //v0
+// 	glVertex2f(0.0f, 12.5f); //v1
+// 	glVertex2f(12.5f, 0.0f); //v2
+// 	glVertex2f(12.5f, 25.0f); //v3
+// 	glVertex2f(37.5f, 0.0f); //v4
+// 	glVertex2f(37.5f, 50.0f); //v5
+// 	glVertex2f(87.5f, 0.0f); //v6
+// 	glEnd();
+
+// 	glColor3f(0.0f, 0.0f, 1.0f);
+// 	glLineWidth(2.0f);
+// 	glBegin(GL_LINE_STRIP);
+// 	glVertex2f(0.0f, 0.0f); //v0
+// 	glVertex2f(0.0f, 12.5f); //v1
+// 	glVertex2f(12.5f, 0.0f); //v2
+// 	glVertex2f(12.5f, 25.0f); //v3
+// 	glVertex2f(37.5f, 0.0f); //v4
+// 	glVertex2f(37.5f, 50.0f); //v5
+// 	glVertex2f(87.5f, 0.0f); //v6
+// 	glEnd();
+
+// 	glFlush();
+// }
+
 void SetupRC(void) {
 	std::cout << "SetupRC" << std::endl;
 	glClearColor(0.0f, 0.0f, 0.0f, 1.0f);
