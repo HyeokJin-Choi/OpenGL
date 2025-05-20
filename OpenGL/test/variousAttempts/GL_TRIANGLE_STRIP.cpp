@@ -15,11 +15,11 @@ void RenderScene() {
 	glColor3f(1.0f, 0.0f, 0.0f);
 
 	glBegin(GL_TRIANGLE_STRIP);
-	glVertex2f(0.0f,0.0f);
-	glVertex2f(50.0f,0.0f);
-	glVertex2f(50.0f,50.0f);
-	glVertex2f(0.0f,50.0f);
-	glVertex2f(50.0f,100.0f);
+	glVertex2f(0.0f, 0.0f); //v0
+	glVertex2f(50.0f, 0.0f); //v1
+	glVertex2f(50.0f, 50.0f); //v2, v0v1v2 삼각형 생성
+	glVertex2f(0.0f, 50.0f); //v3, v1v2v3 삼각형 생성
+	glVertex2f(50.0f, 100.0f); //v4, v2v3v4 삼각형 생성
 	glEnd();
 
 	glFlush();
