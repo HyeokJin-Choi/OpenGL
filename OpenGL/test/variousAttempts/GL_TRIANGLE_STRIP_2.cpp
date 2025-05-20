@@ -13,7 +13,7 @@ float getRandomFloat() {
 void RenderScene() {
 	float x, y;
 	float centerX = 0.0f, centerY = 0.0f;
-	float radius = 50.0f;
+	float radius = 50.0f; // 원의 반지름 설정
 	int count = 0;
 	bool falg = false;
 
@@ -23,7 +23,7 @@ void RenderScene() {
 	glShadeModel(GL_FLAT);
 	glBegin(GL_TRIANGLE_FAN);
 	glVertex3f(centerX, centerY, 0.0f);  // 중심점
-	for (float angle = 0.0f; angle <= 2.0f * GL_PI + 0.1f; angle += (GL_PI/8.0f)) {
+	for (float angle = 0.0f; angle <= 2.0f * GL_PI; angle += (GL_PI / 8.0f)) {
 		x = radius * cos(angle);
 		y = radius * sin(angle);
 		/**
@@ -47,12 +47,28 @@ void RenderScene() {
 	}
 	glEnd();
 
+	glLineWidth(3.0f);
+	// 🎯 시작 선 그리기 (0도 방향)
+	glColor3f(0.0f, 1.0f, 1.0f); // 청록색
+	glBegin(GL_LINES);
+	glVertex2f(centerX, centerY);
+	glVertex2f(radius * cos(0.0f), radius * sin(0.0f));
+	glEnd();
+
+	// 🎯 끝 선 그리기 (360도 근처)
+	float last_angle = 2.0f * GL_PI;
+	glColor3f(1.0f, 1.0f, 0.0f); // 노란색
+	glBegin(GL_LINES);
+	glVertex2f(centerX, centerY);
+	glVertex2f(radius * cos(last_angle), radius * sin(last_angle));
+	glEnd();
+
 	/*
 	glPointSize(6.0f);
 	glColor3f(0.0f, 1.0f, 0.0f);
 	glBegin(GL_POINTS);
 	glVertex3f(centerX, centerY, 0.0f);  // 중심점
-	for (float angle = 0.0f; angle <= 2.0f * GL_PI + 0.1f; angle += (GL_PI / 8.0f)) {
+	for (float angle = 0.0f; angle <= 2.0f * GL_PI; angle += (GL_PI / 8.0f)) {
 		x = radius * cos(angle);
 		y = radius * sin(angle);
 		glVertex3f(x, y, 0.0f);          // 외곽 점
