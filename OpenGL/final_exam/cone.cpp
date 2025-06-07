@@ -45,6 +45,7 @@ void SpecialKeys(int key, int x, int y) {
 }
 void RenderScene(void)
 {
+	// 이 코드의 핵심은 카메라의 각도에 따라 시계방향으로 그려지는 객체는 반시계방향으로 그려지는 객체가 될 수 있다는 점을 이해해야한다.
 	bool bCull = true;
 	glClear(GL_COLOR_BUFFER_BIT);
 
