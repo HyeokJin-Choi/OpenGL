@@ -67,8 +67,9 @@ void RenderScene(void)
 
 	//카메라 좌표는 투영될 화면 방향을 결정
 	gluLookAt(0.0f, 0.0f, 0.0f, //카메라 위치
-		0.0f, 0.0f, 1.0f, //바라볼 목표 지점
+		0.0f, 0.0f, -1.0f, //바라볼 목표 지점
 		0.0f, 1.0f, 0.0f); // 카메라 상향 벡터 - 보통 (0,1,0) 사용
+	// 후면 제거 유무는 Ortho와는 관련없음. Ortho는 단지 보이는 그림의 반전에만 영향
 
 	glPushMatrix();
 	glRotatef(xRot, 1.0f, 0.0f, 0.0f);
@@ -85,8 +86,8 @@ void RenderScene(void)
 	glVertex3f(0.0f, 0.0f, z);
 	for (angle = 0.0f; angle < (2.0f * GL_PI); angle += (GL_PI / 8.0f))
 	{
-		x = 50.0f * sin(angle);
-		y = 50.0f * cos(angle);
+		x = 50.0f * cos(angle);
+		y = 50.0f * sin(angle);
 
 		glVertex3f(x, y, z);
 	}
@@ -99,8 +100,8 @@ void RenderScene(void)
 	glVertex3f(0.0f, 0.0f, z);
 	for (angle = 0.0f; angle < (2.0f * GL_PI); angle += (GL_PI / 8.0f))
 	{
-		x = 20.0f * sin(angle);
-		y = 20.0f * cos(angle);
+		x = 20.0f * cos(angle);
+		y = 20.0f * sin(angle);
 
 		glVertex3f(x, y, z);
 	}
