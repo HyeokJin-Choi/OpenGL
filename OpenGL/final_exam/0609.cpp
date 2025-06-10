@@ -86,11 +86,11 @@ void RenderScene() {
     glutWireCube(10.0f);
     glDisable(GL_LINE_STIPPLE);
 
-    glPushMatrix();
+    //glPushMatrix();
     glTranslatef(0.0f, 10.0f, 0.0f);
     glColor3f(1.0f, 0.0f, 0.0f);
     glutWireCube(10.0f);
-    glPopMatrix();
+    //glPopMatrix();
 
     glutSwapBuffers();
 }
